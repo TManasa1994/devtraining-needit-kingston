@@ -6,7 +6,7 @@
         <action_delete>false</action_delete>
         <action_insert>true</action_insert>
         <action_query>false</action_query>
-        <action_update>false</action_update>
+        <action_update>true</action_update>
         <active>true</active>
         <add_message>false</add_message>
         <advanced>true</advanced>
@@ -31,11 +31,48 @@
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
 	// Add your code here
-	
+		
+		/* var myvalue = current.getValue('short_description');
+		gs.addInfoMessage(myvalue);
 	    gs.info("Information Message from NeedIT in Sys Logs");
 		gs.warn("Information Message from NeedIT in Sys Logs");
 		gs.error("Information Message from NeedIT in Sys Logs");
 		gs.debug("Information Message from NeedIT in Sys Logs");
+		
+		current.description= "This is Manasa's Request";
+	    var shortdesc = current.short_description;
+	
+	try{
+		thisFunctiondoesNotExist();
+	}catch(err){
+		gs.error("This is the Error raised with in try/catch ");
+	}
+	
+	thisFunctionAlsoDoesNotExists();*/
+	
+	//Adding code to know the scripting debugger more...
+	
+	
+	var x=7;
+	function myfun(){
+		
+		var x = 10;
+			return{
+				getNum: function(){
+						return x;
+			}, setNum: function(newnum){
+						x=newnum;
+			}
+		};
+		
+	}
+	
+	var callfunction = myfun();
+	callfunction.getNum();
+	gs.addInfoMessage(x);
+	callfunction.setNum(20);
+	callfunction.getNum();
+	gs.addInfoMessage(x);
 
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
@@ -44,7 +81,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>22b9bf45db3f530023811461399619aa</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>NeedIT_Debug_BusinessRule</sys_name>
         <sys_overrides/>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
@@ -52,7 +89,7 @@
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
         <sys_update_name>sys_script_22b9bf45db3f530023811461399619aa</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-08-07 05:08:02</sys_updated_on>
+        <sys_updated_on>2018-08-07 06:21:27</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
