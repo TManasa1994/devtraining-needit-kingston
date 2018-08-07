@@ -33,18 +33,16 @@
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
 //This Business Rule Server Side Scripting is Calling the Reusable Script Include function
-	var emailAddress = current.email_address;
-	var email_Verification = validateEmailAddress(emailAddress);
 	
+	var isEmail = validateEmailAddress(current.email_address);
 	
-	if(email_verification == false){
-		gs.addInfoMessage("Email Address is not a Valid Entry");
+	if(isEmail == false){
+		gs.addErrorMessage(current.email_address + " is not a valid email address.  You must provide a valid email address.");
 		gs.addErrorMessage("The Value you have provided for email address "+emailAddress+" is not valid. You should follow the rules specified for email entry");
-		
 		current.setAbortAction(true);
-	}else{
-		gs.addInfoMessage("Valid Entry for Email Address");
 	}
+	
+	
 
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
@@ -53,7 +51,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>b1c8fcd5dbbf53002381146139961986</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>EmailID_Verificaiton</sys_name>
         <sys_overrides/>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
@@ -61,7 +59,7 @@
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
         <sys_update_name>sys_script_b1c8fcd5dbbf53002381146139961986</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-08-07 10:13:33</sys_updated_on>
+        <sys_updated_on>2018-08-07 10:21:54</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
